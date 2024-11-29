@@ -1,0 +1,28 @@
+Batch = 01
+Case = 02
+Train_yp = 1
+Target_yp = 15
+Train variables = ('v', 'u', 'p')
+Target variables = ('v', 'w', 'u')
+No. of train variables = 3
+No. of target variables = 3
+Loading test data and predictions from: /mimer/NOBACKUP/groups/kthmech/sadanori/01_Ret180/02_vit/.predictions/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732719122/saved_model/pred_fluct0000.npz
+The MSE value v is: 5.388891e-01
+20.513383181677586
+The MSE value w is: 2.179680e-01
+2514.2416657775957
+The MSE value u is: 4.173716e-01
+467.88689822664657
+Mean of v. RMS error: 320.72 %  RMS dat error: 302.07 % RMS mean dat error: 330.46 %
+Mean of w. RMS error: 4742.47 %  RMS dat error: 4457.52 % RMS mean dat error: 4912.70 %
+Mean of u. RMS error: 2025.33 %  RMS dat error: 1830.02 % RMS mean dat error: 2056.68 %
+RMSE: [316.53619197421096]
+RMSE: [316.53619197421096, 5219.826882248408]
+RMSE: [316.53619197421096, 5219.826882248408, 2083.536548958603]
+RMSEE: [34.9456918225619]
+RMSEE: [34.9456918225619, 129.61925880854452]
+RMSEE: [34.9456918225619, 129.61925880854452, 14.291025347661716]
+[-0.1605017099463826, -0.0031508906566591562, -0.04810022151171244]
+0 [1942 1943 1945]
+1 [2866 1261 1945]
+2 [663 751 680]

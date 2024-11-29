@@ -1,0 +1,149 @@
+Newtonian Wall-Recon is used
+Using TensorFlow version: 2.15.1 , GPU: 4
+Number of devices for distributed training: 4
+WARNING: The provided batch size is used in each device of the distributed training
+n_files_train:6
+n_files_validation:2
+n_samp_train:21424
+n_samp_validation:6420
+tfr train:
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file000samples2000_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file000samples2000_002-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file001samples2000_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file001samples2000_002-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file002samples2000_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file002samples2000_002-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file003samples2000_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file003samples2000_002-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file004samples2000_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file004samples2000_002-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file005samples715_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file005samples715_002-of-002.tfrecords
+tfr valid:
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Validation/.tfrecords_singlefile_validation_dt1157_f32/Ret180_1728x576x864_validation_dt1157_velocityn25_yp001-yp015_file000samples2000_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Validation/.tfrecords_singlefile_validation_dt1157_f32/Ret180_1728x576x864_validation_dt1157_velocityn25_yp001-yp015_file000samples2000_002-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Validation/.tfrecords_singlefile_validation_dt1157_f32/Ret180_1728x576x864_validation_dt1157_velocityn25_yp001-yp015_file001samples1210_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Validation/.tfrecords_singlefile_validation_dt1157_f32/Ret180_1728x576x864_validation_dt1157_velocityn25_yp001-yp015_file001samples1210_002-of-002.tfrecords
+180 576
+
+# ====================================================================
+#     Summary of the options for the model                            
+# ====================================================================
+
+Model name: NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732884982
+Number of samples for training: 21424
+Number of samples for validation: 6420
+Total number of samples: 27844
+Batch size: 16
+
+Data augmentation: False (not implemented in this model)
+Initial distribution of parameters: random
+
+
+Prediction of fluctuation only: True
+y- and z-output scaling with the ratio of RMS values : False
+Normalized input: True
+
+# ====================================================================
+Compiling and training the model for multiple GPU
+Model: "model_1"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to                  
+==================================================================================================
+ input_data (InputLayer)     [(None, 3, 496, 496)]        0         []                            
+                                                                                                  
+ permute (Permute)           (None, 496, 496, 3)          0         ['input_data[0][0]']          
+                                                                                                  
+ lambda (Lambda)             (None, 224, 224, 3)          0         ['permute[0][0]']             
+                                                                                                  
+ model (Functional)          (None, 197, 768)             8579865   ['lambda[0][0]']              
+                                                          6                                       
+                                                                                                  
+ lambda_1 (Lambda)           (None, 196, 768)             0         ['model[0][0]']               
+                                                                                                  
+ reshape_1 (Reshape)         (None, 14, 14, 768)          0         ['lambda_1[0][0]']            
+                                                                                                  
+ conv2d_transpose (Conv2DTr  (None, 28, 28, 256)          1769728   ['reshape_1[0][0]']           
+ anspose)                                                                                         
+                                                                                                  
+ conv2d_transpose_1 (Conv2D  (None, 56, 56, 128)          295040    ['conv2d_transpose[0][0]']    
+ Transpose)                                                                                       
+                                                                                                  
+ conv2d_transpose_2 (Conv2D  (None, 112, 112, 64)         73792     ['conv2d_transpose_1[0][0]']  
+ Transpose)                                                                                       
+                                                                                                  
+ conv2d_transpose_3 (Conv2D  (None, 224, 224, 32)         18464     ['conv2d_transpose_2[0][0]']  
+ Transpose)                                                                                       
+                                                                                                  
+ lambda_2 (Lambda)           (None, 432, 432, 32)         0         ['conv2d_transpose_3[0][0]']  
+                                                                                                  
+ permute_1 (Permute)         (None, 32, 432, 432)         0         ['lambda_2[0][0]']            
+                                                                                                  
+ conv2d (Conv2D)             (None, 1, 432, 432)          289       ['permute_1[0][0]']           
+                                                                                                  
+ conv2d_1 (Conv2D)           (None, 1, 432, 432)          289       ['permute_1[0][0]']           
+                                                                                                  
+ conv2d_2 (Conv2D)           (None, 1, 432, 432)          289       ['permute_1[0][0]']           
+                                                                                                  
+ act_b1 (Lambda)             (None, 1, 432, 432)          0         ['conv2d[0][0]']              
+                                                                                                  
+ act_b2 (Lambda)             (None, 1, 432, 432)          0         ['conv2d_1[0][0]']            
+                                                                                                  
+ act_b3 (Lambda)             (None, 1, 432, 432)          0         ['conv2d_2[0][0]']            
+                                                                                                  
+==================================================================================================
+Total params: 87956547 (335.53 MB)
+Trainable params: 87956547 (335.53 MB)
+Non-trainable params: 0 (0.00 Byte)
+__________________________________________________________________________________________________
+None
+Epoch 1/25
+1339/1339 - 229s - loss: 0.0030 - act_b1_loss: 0.0026 - act_b2_loss: 6.8633e-05 - act_b3_loss: 3.3177e-04 - val_loss: 0.0014 - val_act_b1_loss: 0.0012 - val_act_b2_loss: 4.0958e-05 - val_act_b3_loss: 1.6509e-04 - learning_rate: 8.5926e-04 - lr: 0.0010 - 229s/epoch - 171ms/step
+Epoch 2/25
+1339/1339 - 136s - loss: 6.3139e-04 - act_b1_loss: 4.9187e-04 - act_b2_loss: 3.1735e-05 - act_b3_loss: 1.0779e-04 - val_loss: 0.0013 - val_act_b1_loss: 0.0011 - val_act_b2_loss: 2.9340e-05 - val_act_b3_loss: 1.2978e-04 - learning_rate: 9.6512e-04 - lr: 0.0010 - 136s/epoch - 101ms/step
+Epoch 3/25
+1339/1339 - 136s - loss: 9.8035e-04 - act_b1_loss: 7.7342e-04 - act_b2_loss: 3.9957e-05 - act_b3_loss: 1.6698e-04 - val_loss: 0.0012 - val_act_b1_loss: 0.0010 - val_act_b2_loss: 2.8138e-05 - val_act_b3_loss: 1.2696e-04 - learning_rate: 9.9098e-04 - lr: 0.0010 - 136s/epoch - 101ms/step
+Epoch 4/25
+1339/1339 - 135s - loss: 4.0757e-04 - act_b1_loss: 3.0832e-04 - act_b2_loss: 2.2842e-05 - act_b3_loss: 7.6405e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.9534e-04 - val_act_b2_loss: 2.4463e-05 - val_act_b3_loss: 1.1764e-04 - learning_rate: 9.9765e-04 - lr: 0.0010 - 135s/epoch - 101ms/step
+Epoch 5/25
+1339/1339 - 136s - loss: 3.3955e-04 - act_b1_loss: 2.5558e-04 - act_b2_loss: 1.9846e-05 - act_b3_loss: 6.4127e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.7089e-04 - val_act_b2_loss: 2.2960e-05 - val_act_b3_loss: 1.1228e-04 - learning_rate: 9.9938e-04 - lr: 0.0010 - 136s/epoch - 102ms/step
+Epoch 6/25
+1339/1339 - 135s - loss: 7.4907e-04 - act_b1_loss: 6.2571e-04 - act_b2_loss: 2.4109e-05 - act_b3_loss: 9.9253e-05 - val_loss: 0.0011 - val_act_b1_loss: 0.0010 - val_act_b2_loss: 2.3116e-05 - val_act_b3_loss: 1.1475e-04 - learning_rate: 9.9984e-04 - lr: 0.0010 - 135s/epoch - 101ms/step
+Epoch 7/25
+1339/1339 - 135s - loss: 2.9222e-04 - act_b1_loss: 2.1832e-04 - act_b2_loss: 1.7633e-05 - act_b3_loss: 5.6272e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.6419e-04 - val_act_b2_loss: 2.1272e-05 - val_act_b3_loss: 1.0733e-04 - learning_rate: 9.9996e-04 - lr: 0.0010 - 135s/epoch - 101ms/step
+Epoch 8/25
+1339/1339 - 135s - loss: 2.5168e-04 - act_b1_loss: 1.8611e-04 - act_b2_loss: 1.6180e-05 - act_b3_loss: 4.9388e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.6124e-04 - val_act_b2_loss: 2.0320e-05 - val_act_b3_loss: 1.0534e-04 - learning_rate: 9.9999e-04 - lr: 0.0010 - 135s/epoch - 101ms/step
+Epoch 9/25
+1339/1339 - 135s - loss: 2.2961e-04 - act_b1_loss: 1.6925e-04 - act_b2_loss: 1.5231e-05 - act_b3_loss: 4.5130e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.6073e-04 - val_act_b2_loss: 1.9984e-05 - val_act_b3_loss: 1.0533e-04 - learning_rate: 1.0000e-03 - lr: 0.0010 - 135s/epoch - 101ms/step
+Epoch 10/25
+1339/1339 - 135s - loss: 1.9441e-04 - act_b1_loss: 1.3986e-04 - act_b2_loss: 1.4125e-05 - act_b3_loss: 4.0418e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.4443e-04 - val_act_b2_loss: 1.9074e-05 - val_act_b3_loss: 1.0268e-04 - learning_rate: 5.0000e-04 - lr: 5.0000e-04 - 135s/epoch - 101ms/step
+Epoch 11/25
+1339/1339 - 135s - loss: 1.8160e-04 - act_b1_loss: 1.2961e-04 - act_b2_loss: 1.3650e-05 - act_b3_loss: 3.8341e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3946e-04 - val_act_b2_loss: 1.8627e-05 - val_act_b3_loss: 1.0251e-04 - learning_rate: 2.5000e-04 - lr: 2.5000e-04 - 135s/epoch - 101ms/step
+Epoch 12/25
+1339/1339 - 135s - loss: 1.7564e-04 - act_b1_loss: 1.2485e-04 - act_b2_loss: 1.3415e-05 - act_b3_loss: 3.7368e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3935e-04 - val_act_b2_loss: 1.8527e-05 - val_act_b3_loss: 1.0106e-04 - learning_rate: 1.2500e-04 - lr: 1.2500e-04 - 135s/epoch - 101ms/step
+Epoch 13/25
+1339/1339 - 135s - loss: 1.7291e-04 - act_b1_loss: 1.2270e-04 - act_b2_loss: 1.3301e-05 - act_b3_loss: 3.6909e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3985e-04 - val_act_b2_loss: 1.8464e-05 - val_act_b3_loss: 1.0089e-04 - learning_rate: 6.2500e-05 - lr: 6.2500e-05 - 135s/epoch - 101ms/step
+Epoch 14/25
+1339/1339 - 135s - loss: 1.7141e-04 - act_b1_loss: 1.2151e-04 - act_b2_loss: 1.3236e-05 - act_b3_loss: 3.6660e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3733e-04 - val_act_b2_loss: 1.8386e-05 - val_act_b3_loss: 1.0091e-04 - learning_rate: 3.1250e-05 - lr: 3.1250e-05 - 135s/epoch - 101ms/step
+Epoch 15/25
+1339/1339 - 135s - loss: 1.7069e-04 - act_b1_loss: 1.2093e-04 - act_b2_loss: 1.3205e-05 - act_b3_loss: 3.6559e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3639e-04 - val_act_b2_loss: 1.8348e-05 - val_act_b3_loss: 1.0074e-04 - learning_rate: 1.5625e-05 - lr: 1.5625e-05 - 135s/epoch - 101ms/step
+Epoch 16/25
+1339/1339 - 135s - loss: 1.7037e-04 - act_b1_loss: 1.2071e-04 - act_b2_loss: 1.3190e-05 - act_b3_loss: 3.6469e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3582e-04 - val_act_b2_loss: 1.8338e-05 - val_act_b3_loss: 1.0059e-04 - learning_rate: 7.8125e-06 - lr: 7.8125e-06 - 135s/epoch - 101ms/step
+Epoch 17/25
+1339/1339 - 135s - loss: 1.7015e-04 - act_b1_loss: 1.2052e-04 - act_b2_loss: 1.3181e-05 - act_b3_loss: 3.6448e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3530e-04 - val_act_b2_loss: 1.8326e-05 - val_act_b3_loss: 1.0070e-04 - learning_rate: 3.9063e-06 - lr: 3.9063e-06 - 135s/epoch - 101ms/step
+Epoch 18/25
+1339/1339 - 135s - loss: 1.6996e-04 - act_b1_loss: 1.2035e-04 - act_b2_loss: 1.3180e-05 - act_b3_loss: 3.6424e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3454e-04 - val_act_b2_loss: 1.8315e-05 - val_act_b3_loss: 1.0058e-04 - learning_rate: 1.9531e-06 - lr: 1.9531e-06 - 135s/epoch - 101ms/step
+Epoch 19/25
+1339/1339 - 134s - loss: 1.6997e-04 - act_b1_loss: 1.2036e-04 - act_b2_loss: 1.3174e-05 - act_b3_loss: 3.6433e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3433e-04 - val_act_b2_loss: 1.8306e-05 - val_act_b3_loss: 1.0046e-04 - learning_rate: 9.7656e-07 - lr: 9.7656e-07 - 134s/epoch - 100ms/step
+Epoch 20/25
+1339/1339 - 134s - loss: 1.7000e-04 - act_b1_loss: 1.2039e-04 - act_b2_loss: 1.3179e-05 - act_b3_loss: 3.6432e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3371e-04 - val_act_b2_loss: 1.8309e-05 - val_act_b3_loss: 1.0045e-04 - learning_rate: 2.4414e-07 - lr: 2.4414e-07 - 134s/epoch - 100ms/step
+Epoch 21/25
+1339/1339 - 134s - loss: 1.6996e-04 - act_b1_loss: 1.2035e-04 - act_b2_loss: 1.3178e-05 - act_b3_loss: 3.6427e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3357e-04 - val_act_b2_loss: 1.8310e-05 - val_act_b3_loss: 1.0046e-04 - learning_rate: 6.1035e-08 - lr: 6.1035e-08 - 134s/epoch - 100ms/step
+Epoch 22/25
+1339/1339 - 134s - loss: 1.6998e-04 - act_b1_loss: 1.2040e-04 - act_b2_loss: 1.3175e-05 - act_b3_loss: 3.6404e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3327e-04 - val_act_b2_loss: 1.8310e-05 - val_act_b3_loss: 1.0044e-04 - learning_rate: 1.5259e-08 - lr: 1.5259e-08 - 134s/epoch - 100ms/step
+Epoch 23/25
+1339/1339 - 134s - loss: 1.6991e-04 - act_b1_loss: 1.2032e-04 - act_b2_loss: 1.3173e-05 - act_b3_loss: 3.6415e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3316e-04 - val_act_b2_loss: 1.8309e-05 - val_act_b3_loss: 1.0043e-04 - learning_rate: 3.8147e-09 - lr: 3.8147e-09 - 134s/epoch - 100ms/step
+Epoch 24/25
+1339/1339 - 134s - loss: 1.6997e-04 - act_b1_loss: 1.2038e-04 - act_b2_loss: 1.3172e-05 - act_b3_loss: 3.6417e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3315e-04 - val_act_b2_loss: 1.8309e-05 - val_act_b3_loss: 1.0043e-04 - learning_rate: 9.5367e-10 - lr: 9.5367e-10 - 134s/epoch - 100ms/step
+Epoch 25/25
+1339/1339 - 133s - loss: 1.6993e-04 - act_b1_loss: 1.2033e-04 - act_b2_loss: 1.3170e-05 - act_b3_loss: 3.6428e-05 - val_loss: 0.0011 - val_act_b1_loss: 9.3315e-04 - val_act_b2_loss: 1.8309e-05 - val_act_b3_loss: 1.0043e-04 - learning_rate: 2.3842e-10 - lr: 2.3842e-10 - 133s/epoch - 100ms/step

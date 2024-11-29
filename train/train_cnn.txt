@@ -1,0 +1,517 @@
+Newtonian Wall-Recon is used
+Using TensorFlow version: 2.15.1 , GPU: 4
+Number of devices for distributed training: 4
+WARNING: The provided batch size is used in each device of the distributed training
+n_files_train:6
+n_files_validation:2
+n_samp_train:21424
+n_samp_validation:6420
+tfr train:
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file000samples2000_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file000samples2000_002-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file001samples2000_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file001samples2000_002-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file002samples2000_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file002samples2000_002-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file003samples2000_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file003samples2000_002-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file004samples2000_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file004samples2000_002-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file005samples715_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Train/.tfrecords_singlefile_train_dt1157_f32/Ret180_1728x576x864_train_dt1157_velocityn25_yp001-yp015_file005samples715_002-of-002.tfrecords
+tfr valid:
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Validation/.tfrecords_singlefile_validation_dt1157_f32/Ret180_1728x576x864_validation_dt1157_velocityn25_yp001-yp015_file000samples2000_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Validation/.tfrecords_singlefile_validation_dt1157_f32/Ret180_1728x576x864_validation_dt1157_velocityn25_yp001-yp015_file000samples2000_002-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Validation/.tfrecords_singlefile_validation_dt1157_f32/Ret180_1728x576x864_validation_dt1157_velocityn25_yp001-yp015_file001samples1210_001-of-002.tfrecords
+/mimer/NOBACKUP/groups/kthmech/argb/02_VE/n25/99_dataset/Validation/.tfrecords_singlefile_validation_dt1157_f32/Ret180_1728x576x864_validation_dt1157_velocityn25_yp001-yp015_file001samples1210_002-of-002.tfrecords
+180 576
+
+# ====================================================================
+#     Summary of the options for the model                            
+# ====================================================================
+
+Model name: NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545
+Number of samples for training: 21424
+Number of samples for validation: 6420
+Total number of samples: 27844
+Batch size: 16
+
+Data augmentation: False (not implemented in this model)
+Initial distribution of parameters: random
+
+
+Prediction of fluctuation only: True
+y- and z-output scaling with the ratio of RMS values : False
+Normalized input: True
+
+# ====================================================================
+Compiling and training the model for multiple GPU
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to                  
+==================================================================================================
+ input_data (InputLayer)     [(None, 3, 496, 496)]        0         []                            
+                                                                                                  
+ conv2d (Conv2D)             (None, 30, 494, 494)         840       ['input_data[0][0]']          
+                                                                                                  
+ batch_normalization (Batch  (None, 30, 494, 494)         120       ['conv2d[0][0]']              
+ Normalization)                                                                                   
+                                                                                                  
+ activation (Activation)     (None, 30, 494, 494)         0         ['batch_normalization[0][0]'] 
+                                                                                                  
+ conv2d_1 (Conv2D)           (None, 34, 492, 492)         9214      ['activation[0][0]']          
+                                                                                                  
+ batch_normalization_1 (Bat  (None, 34, 492, 492)         136       ['conv2d_1[0][0]']            
+ chNormalization)                                                                                 
+                                                                                                  
+ activation_1 (Activation)   (None, 34, 492, 492)         0         ['batch_normalization_1[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv2d_2 (Conv2D)           (None, 38, 490, 490)         11666     ['activation_1[0][0]']        
+                                                                                                  
+ batch_normalization_2 (Bat  (None, 38, 490, 490)         152       ['conv2d_2[0][0]']            
+ chNormalization)                                                                                 
+                                                                                                  
+ activation_2 (Activation)   (None, 38, 490, 490)         0         ['batch_normalization_2[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv2d_3 (Conv2D)           (None, 42, 488, 488)         14406     ['activation_2[0][0]']        
+                                                                                                  
+ batch_normalization_3 (Bat  (None, 42, 488, 488)         168       ['conv2d_3[0][0]']            
+ chNormalization)                                                                                 
+                                                                                                  
+ activation_3 (Activation)   (None, 42, 488, 488)         0         ['batch_normalization_3[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv2d_4 (Conv2D)           (None, 46, 486, 486)         17434     ['activation_3[0][0]']        
+                                                                                                  
+ batch_normalization_4 (Bat  (None, 46, 486, 486)         184       ['conv2d_4[0][0]']            
+ chNormalization)                                                                                 
+                                                                                                  
+ activation_4 (Activation)   (None, 46, 486, 486)         0         ['batch_normalization_4[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv2d_5 (Conv2D)           (None, 50, 484, 484)         20750     ['activation_4[0][0]']        
+                                                                                                  
+ batch_normalization_5 (Bat  (None, 50, 484, 484)         200       ['conv2d_5[0][0]']            
+ chNormalization)                                                                                 
+                                                                                                  
+ activation_5 (Activation)   (None, 50, 484, 484)         0         ['batch_normalization_5[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv2d_6 (Conv2D)           (None, 54, 482, 482)         24354     ['activation_5[0][0]']        
+                                                                                                  
+ batch_normalization_6 (Bat  (None, 54, 482, 482)         216       ['conv2d_6[0][0]']            
+ chNormalization)                                                                                 
+                                                                                                  
+ activation_6 (Activation)   (None, 54, 482, 482)         0         ['batch_normalization_6[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv2d_7 (Conv2D)           (None, 58, 480, 480)         28246     ['activation_6[0][0]']        
+                                                                                                  
+ batch_normalization_7 (Bat  (None, 58, 480, 480)         232       ['conv2d_7[0][0]']            
+ chNormalization)                                                                                 
+                                                                                                  
+ activation_7 (Activation)   (None, 58, 480, 480)         0         ['batch_normalization_7[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv2d_8 (Conv2D)           (None, 62, 478, 478)         32426     ['activation_7[0][0]']        
+                                                                                                  
+ batch_normalization_8 (Bat  (None, 62, 478, 478)         248       ['conv2d_8[0][0]']            
+ chNormalization)                                                                                 
+                                                                                                  
+ activation_8 (Activation)   (None, 62, 478, 478)         0         ['batch_normalization_8[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv2d_9 (Conv2D)           (None, 66, 476, 476)         36894     ['activation_8[0][0]']        
+                                                                                                  
+ batch_normalization_9 (Bat  (None, 66, 476, 476)         264       ['conv2d_9[0][0]']            
+ chNormalization)                                                                                 
+                                                                                                  
+ activation_9 (Activation)   (None, 66, 476, 476)         0         ['batch_normalization_9[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv2d_10 (Conv2D)          (None, 70, 474, 474)         41650     ['activation_9[0][0]']        
+                                                                                                  
+ batch_normalization_10 (Ba  (None, 70, 474, 474)         280       ['conv2d_10[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_10 (Activation)  (None, 70, 474, 474)         0         ['batch_normalization_10[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_11 (Conv2D)          (None, 74, 472, 472)         46694     ['activation_10[0][0]']       
+                                                                                                  
+ batch_normalization_11 (Ba  (None, 74, 472, 472)         296       ['conv2d_11[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_11 (Activation)  (None, 74, 472, 472)         0         ['batch_normalization_11[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_12 (Conv2D)          (None, 78, 470, 470)         52026     ['activation_11[0][0]']       
+                                                                                                  
+ batch_normalization_12 (Ba  (None, 78, 470, 470)         312       ['conv2d_12[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_12 (Activation)  (None, 78, 470, 470)         0         ['batch_normalization_12[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_13 (Conv2D)          (None, 82, 468, 468)         57646     ['activation_12[0][0]']       
+                                                                                                  
+ batch_normalization_13 (Ba  (None, 82, 468, 468)         328       ['conv2d_13[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_13 (Activation)  (None, 82, 468, 468)         0         ['batch_normalization_13[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_14 (Conv2D)          (None, 86, 466, 466)         63554     ['activation_13[0][0]']       
+                                                                                                  
+ batch_normalization_14 (Ba  (None, 86, 466, 466)         344       ['conv2d_14[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_14 (Activation)  (None, 86, 466, 466)         0         ['batch_normalization_14[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_15 (Conv2D)          (None, 86, 464, 464)         66650     ['activation_14[0][0]']       
+                                                                                                  
+ batch_normalization_15 (Ba  (None, 86, 464, 464)         344       ['conv2d_15[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_15 (Activation)  (None, 86, 464, 464)         0         ['batch_normalization_15[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_16 (Conv2D)          (None, 82, 462, 462)         63550     ['activation_15[0][0]']       
+                                                                                                  
+ batch_normalization_16 (Ba  (None, 82, 462, 462)         328       ['conv2d_16[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_16 (Activation)  (None, 82, 462, 462)         0         ['batch_normalization_16[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_17 (Conv2D)          (None, 78, 460, 460)         57642     ['activation_16[0][0]']       
+                                                                                                  
+ batch_normalization_17 (Ba  (None, 78, 460, 460)         312       ['conv2d_17[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_17 (Activation)  (None, 78, 460, 460)         0         ['batch_normalization_17[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_18 (Conv2D)          (None, 74, 458, 458)         52022     ['activation_17[0][0]']       
+                                                                                                  
+ batch_normalization_18 (Ba  (None, 74, 458, 458)         296       ['conv2d_18[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_18 (Activation)  (None, 74, 458, 458)         0         ['batch_normalization_18[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_19 (Conv2D)          (None, 70, 456, 456)         46690     ['activation_18[0][0]']       
+                                                                                                  
+ batch_normalization_19 (Ba  (None, 70, 456, 456)         280       ['conv2d_19[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_19 (Activation)  (None, 70, 456, 456)         0         ['batch_normalization_19[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_20 (Conv2D)          (None, 66, 454, 454)         41646     ['activation_19[0][0]']       
+                                                                                                  
+ batch_normalization_20 (Ba  (None, 66, 454, 454)         264       ['conv2d_20[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_20 (Activation)  (None, 66, 454, 454)         0         ['batch_normalization_20[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_21 (Conv2D)          (None, 62, 452, 452)         36890     ['activation_20[0][0]']       
+                                                                                                  
+ batch_normalization_21 (Ba  (None, 62, 452, 452)         248       ['conv2d_21[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_21 (Activation)  (None, 62, 452, 452)         0         ['batch_normalization_21[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_22 (Conv2D)          (None, 58, 450, 450)         32422     ['activation_21[0][0]']       
+                                                                                                  
+ batch_normalization_22 (Ba  (None, 58, 450, 450)         232       ['conv2d_22[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_22 (Activation)  (None, 58, 450, 450)         0         ['batch_normalization_22[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_23 (Conv2D)          (None, 54, 448, 448)         28242     ['activation_22[0][0]']       
+                                                                                                  
+ batch_normalization_23 (Ba  (None, 54, 448, 448)         216       ['conv2d_23[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_23 (Activation)  (None, 54, 448, 448)         0         ['batch_normalization_23[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_24 (Conv2D)          (None, 50, 446, 446)         24350     ['activation_23[0][0]']       
+                                                                                                  
+ batch_normalization_24 (Ba  (None, 50, 446, 446)         200       ['conv2d_24[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_24 (Activation)  (None, 50, 446, 446)         0         ['batch_normalization_24[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_25 (Conv2D)          (None, 46, 444, 444)         20746     ['activation_24[0][0]']       
+                                                                                                  
+ batch_normalization_25 (Ba  (None, 46, 444, 444)         184       ['conv2d_25[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_25 (Activation)  (None, 46, 444, 444)         0         ['batch_normalization_25[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_26 (Conv2D)          (None, 42, 442, 442)         17430     ['activation_25[0][0]']       
+                                                                                                  
+ batch_normalization_26 (Ba  (None, 42, 442, 442)         168       ['conv2d_26[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_26 (Activation)  (None, 42, 442, 442)         0         ['batch_normalization_26[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_27 (Conv2D)          (None, 38, 440, 440)         14402     ['activation_26[0][0]']       
+                                                                                                  
+ batch_normalization_27 (Ba  (None, 38, 440, 440)         152       ['conv2d_27[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_27 (Activation)  (None, 38, 440, 440)         0         ['batch_normalization_27[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_28 (Conv2D)          (None, 34, 438, 438)         11662     ['activation_27[0][0]']       
+                                                                                                  
+ batch_normalization_28 (Ba  (None, 34, 438, 438)         136       ['conv2d_28[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_28 (Activation)  (None, 34, 438, 438)         0         ['batch_normalization_28[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_29 (Conv2D)          (None, 30, 436, 436)         9210      ['activation_28[0][0]']       
+                                                                                                  
+ batch_normalization_29 (Ba  (None, 30, 436, 436)         120       ['conv2d_29[0][0]']           
+ tchNormalization)                                                                                
+                                                                                                  
+ activation_29 (Activation)  (None, 30, 436, 436)         0         ['batch_normalization_29[0][0]
+                                                                    ']                            
+                                                                                                  
+ conv2d_30 (Conv2D)          (None, 1, 434, 434)          271       ['activation_29[0][0]']       
+                                                                                                  
+ conv2d_31 (Conv2D)          (None, 1, 434, 434)          271       ['activation_29[0][0]']       
+                                                                                                  
+ conv2d_32 (Conv2D)          (None, 1, 434, 434)          271       ['activation_29[0][0]']       
+                                                                                                  
+ act_b1 (Lambda)             (None, 1, 434, 434)          0         ['conv2d_30[0][0]']           
+                                                                                                  
+ act_b2 (Lambda)             (None, 1, 434, 434)          0         ['conv2d_31[0][0]']           
+                                                                                                  
+ act_b3 (Lambda)             (None, 1, 434, 434)          0         ['conv2d_32[0][0]']           
+                                                                                                  
+ output_b1 (Cropping2D)      (None, 1, 432, 432)          0         ['act_b1[0][0]']              
+                                                                                                  
+ output_b2 (Cropping2D)      (None, 1, 432, 432)          0         ['act_b2[0][0]']              
+                                                                                                  
+ output_b3 (Cropping2D)      (None, 1, 432, 432)          0         ['act_b3[0][0]']              
+                                                                                                  
+==================================================================================================
+Total params: 989127 (3.77 MB)
+Trainable params: 985647 (3.76 MB)
+Non-trainable params: 3480 (13.59 KB)
+__________________________________________________________________________________________________
+None
+Epoch 1/50
+
+Epoch 1: val_output_b1_loss improved from inf to 0.00355, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0001.hdf5
+1339/1339 - 558s - loss: 0.0081 - output_b1_loss: 0.0060 - output_b2_loss: 6.8655e-04 - output_b3_loss: 0.0015 - val_loss: 0.0044 - val_output_b1_loss: 0.0036 - val_output_b2_loss: 6.7500e-05 - val_output_b3_loss: 8.1701e-04 - learning_rate: 8.5926e-04 - lr: 0.0010 - 558s/epoch - 416ms/step
+Epoch 2/50
+
+Epoch 2: val_output_b1_loss did not improve from 0.00355
+1339/1339 - 474s - loss: 0.0054 - output_b1_loss: 0.0042 - output_b2_loss: 2.3031e-04 - output_b3_loss: 9.5219e-04 - val_loss: 0.0065 - val_output_b1_loss: 0.0056 - val_output_b2_loss: 6.3160e-05 - val_output_b3_loss: 7.8808e-04 - learning_rate: 9.6512e-04 - lr: 0.0010 - 474s/epoch - 354ms/step
+Epoch 3/50
+
+Epoch 3: val_output_b1_loss improved from 0.00355 to 0.00303, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0003.hdf5
+1339/1339 - 475s - loss: 0.0034 - output_b1_loss: 0.0027 - output_b2_loss: 6.3677e-05 - output_b3_loss: 6.1713e-04 - val_loss: 0.0036 - val_output_b1_loss: 0.0030 - val_output_b2_loss: 5.9468e-05 - val_output_b3_loss: 5.3777e-04 - learning_rate: 9.9098e-04 - lr: 0.0010 - 475s/epoch - 355ms/step
+Epoch 4/50
+
+Epoch 4: val_output_b1_loss did not improve from 0.00303
+1339/1339 - 473s - loss: 0.0027 - output_b1_loss: 0.0023 - output_b2_loss: 5.6897e-05 - output_b3_loss: 3.6256e-04 - val_loss: 0.0066 - val_output_b1_loss: 0.0059 - val_output_b2_loss: 1.0762e-04 - val_output_b3_loss: 6.0025e-04 - learning_rate: 9.9765e-04 - lr: 0.0010 - 473s/epoch - 354ms/step
+Epoch 5/50
+
+Epoch 5: val_output_b1_loss improved from 0.00303 to 0.00299, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0005.hdf5
+1339/1339 - 474s - loss: 0.0023 - output_b1_loss: 0.0020 - output_b2_loss: 5.1689e-05 - output_b3_loss: 3.0898e-04 - val_loss: 0.0035 - val_output_b1_loss: 0.0030 - val_output_b2_loss: 6.9940e-05 - val_output_b3_loss: 3.9927e-04 - learning_rate: 9.9938e-04 - lr: 0.0010 - 474s/epoch - 354ms/step
+Epoch 6/50
+
+Epoch 6: val_output_b1_loss improved from 0.00299 to 0.00160, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0006.hdf5
+1339/1339 - 474s - loss: 0.0022 - output_b1_loss: 0.0018 - output_b2_loss: 4.7724e-05 - output_b3_loss: 2.7860e-04 - val_loss: 0.0020 - val_output_b1_loss: 0.0016 - val_output_b2_loss: 5.0588e-05 - val_output_b3_loss: 3.8771e-04 - learning_rate: 9.9984e-04 - lr: 0.0010 - 474s/epoch - 354ms/step
+Epoch 7/50
+
+Epoch 7: val_output_b1_loss did not improve from 0.00160
+1339/1339 - 473s - loss: 0.0020 - output_b1_loss: 0.0017 - output_b2_loss: 4.5655e-05 - output_b3_loss: 2.5622e-04 - val_loss: 0.0050 - val_output_b1_loss: 0.0042 - val_output_b2_loss: 8.3837e-05 - val_output_b3_loss: 7.0555e-04 - learning_rate: 9.9996e-04 - lr: 0.0010 - 473s/epoch - 353ms/step
+Epoch 8/50
+
+Epoch 8: val_output_b1_loss did not improve from 0.00160
+1339/1339 - 474s - loss: 0.0019 - output_b1_loss: 0.0016 - output_b2_loss: 4.3523e-05 - output_b3_loss: 2.4092e-04 - val_loss: 0.0037 - val_output_b1_loss: 0.0033 - val_output_b2_loss: 7.4635e-05 - val_output_b3_loss: 3.7157e-04 - learning_rate: 9.9999e-04 - lr: 0.0010 - 474s/epoch - 354ms/step
+Epoch 9/50
+
+Epoch 9: val_output_b1_loss improved from 0.00160 to 0.00155, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0009.hdf5
+1339/1339 - 473s - loss: 0.0017 - output_b1_loss: 0.0014 - output_b2_loss: 3.9629e-05 - output_b3_loss: 2.2079e-04 - val_loss: 0.0018 - val_output_b1_loss: 0.0016 - val_output_b2_loss: 3.5426e-05 - val_output_b3_loss: 2.2313e-04 - learning_rate: 1.0000e-03 - lr: 0.0010 - 473s/epoch - 353ms/step
+Epoch 10/50
+
+Epoch 10: val_output_b1_loss did not improve from 0.00155
+1339/1339 - 474s - loss: 0.0014 - output_b1_loss: 0.0012 - output_b2_loss: 3.2230e-05 - output_b3_loss: 1.8764e-04 - val_loss: 0.0023 - val_output_b1_loss: 0.0021 - val_output_b2_loss: 3.0979e-05 - val_output_b3_loss: 1.9758e-04 - learning_rate: 5.0000e-04 - lr: 5.0000e-04 - 474s/epoch - 354ms/step
+Epoch 11/50
+
+Epoch 11: val_output_b1_loss improved from 0.00155 to 0.00114, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0011.hdf5
+1339/1339 - 474s - loss: 0.0013 - output_b1_loss: 0.0011 - output_b2_loss: 2.8188e-05 - output_b3_loss: 1.7418e-04 - val_loss: 0.0014 - val_output_b1_loss: 0.0011 - val_output_b2_loss: 2.5401e-05 - val_output_b3_loss: 1.9947e-04 - learning_rate: 2.5000e-04 - lr: 2.5000e-04 - 474s/epoch - 354ms/step
+Epoch 12/50
+
+Epoch 12: val_output_b1_loss improved from 0.00114 to 0.00106, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0012.hdf5
+1339/1339 - 474s - loss: 0.0012 - output_b1_loss: 0.0010 - output_b2_loss: 2.6164e-05 - output_b3_loss: 1.6809e-04 - val_loss: 0.0013 - val_output_b1_loss: 0.0011 - val_output_b2_loss: 2.4771e-05 - val_output_b3_loss: 1.7402e-04 - learning_rate: 1.2500e-04 - lr: 1.2500e-04 - 474s/epoch - 354ms/step
+Epoch 13/50
+
+Epoch 13: val_output_b1_loss did not improve from 0.00106
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 0.0010 - output_b2_loss: 2.5075e-05 - output_b3_loss: 1.6451e-04 - val_loss: 0.0014 - val_output_b1_loss: 0.0012 - val_output_b2_loss: 2.3894e-05 - val_output_b3_loss: 1.6529e-04 - learning_rate: 6.2500e-05 - lr: 6.2500e-05 - 473s/epoch - 353ms/step
+Epoch 14/50
+
+Epoch 14: val_output_b1_loss did not improve from 0.00106
+1339/1339 - 472s - loss: 0.0012 - output_b1_loss: 0.0010 - output_b2_loss: 2.4520e-05 - output_b3_loss: 1.6296e-04 - val_loss: 0.0013 - val_output_b1_loss: 0.0011 - val_output_b2_loss: 2.2804e-05 - val_output_b3_loss: 1.6518e-04 - learning_rate: 3.1250e-05 - lr: 3.1250e-05 - 472s/epoch - 353ms/step
+Epoch 15/50
+
+Epoch 15: val_output_b1_loss did not improve from 0.00106
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9299e-04 - output_b2_loss: 2.4153e-05 - output_b3_loss: 1.6181e-04 - val_loss: 0.0013 - val_output_b1_loss: 0.0011 - val_output_b2_loss: 2.2799e-05 - val_output_b3_loss: 1.6458e-04 - learning_rate: 1.5625e-05 - lr: 1.5625e-05 - 473s/epoch - 353ms/step
+Epoch 16/50
+
+Epoch 16: val_output_b1_loss did not improve from 0.00106
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.8781e-04 - output_b2_loss: 2.3938e-05 - output_b3_loss: 1.6146e-04 - val_loss: 0.0013 - val_output_b1_loss: 0.0011 - val_output_b2_loss: 2.2528e-05 - val_output_b3_loss: 1.6093e-04 - learning_rate: 7.8125e-06 - lr: 7.8125e-06 - 473s/epoch - 353ms/step
+Epoch 17/50
+
+Epoch 17: val_output_b1_loss did not improve from 0.00106
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.8823e-04 - output_b2_loss: 2.3852e-05 - output_b3_loss: 1.6127e-04 - val_loss: 0.0013 - val_output_b1_loss: 0.0011 - val_output_b2_loss: 2.2600e-05 - val_output_b3_loss: 1.6070e-04 - learning_rate: 3.9063e-06 - lr: 3.9063e-06 - 473s/epoch - 354ms/step
+Epoch 18/50
+
+Epoch 18: val_output_b1_loss improved from 0.00106 to 0.00103, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0018.hdf5
+1339/1339 - 474s - loss: 0.0012 - output_b1_loss: 9.8847e-04 - output_b2_loss: 2.3839e-05 - output_b3_loss: 1.6170e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2381e-05 - val_output_b3_loss: 1.6030e-04 - learning_rate: 1.9531e-06 - lr: 1.9531e-06 - 474s/epoch - 354ms/step
+Epoch 19/50
+
+Epoch 19: val_output_b1_loss improved from 0.00103 to 0.00102, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0019.hdf5
+1339/1339 - 474s - loss: 0.0012 - output_b1_loss: 9.9084e-04 - output_b2_loss: 2.3784e-05 - output_b3_loss: 1.6178e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2388e-05 - val_output_b3_loss: 1.6018e-04 - learning_rate: 9.7656e-07 - lr: 9.7656e-07 - 474s/epoch - 354ms/step
+Epoch 20/50
+
+Epoch 20: val_output_b1_loss improved from 0.00102 to 0.00101, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0020.hdf5
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9672e-04 - output_b2_loss: 2.3762e-05 - output_b3_loss: 1.6276e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2406e-05 - val_output_b3_loss: 1.6047e-04 - learning_rate: 2.4414e-07 - lr: 2.4414e-07 - 473s/epoch - 353ms/step
+Epoch 21/50
+
+Epoch 21: val_output_b1_loss improved from 0.00101 to 0.00101, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0021.hdf5
+1339/1339 - 472s - loss: 0.0012 - output_b1_loss: 9.9557e-04 - output_b2_loss: 2.3712e-05 - output_b3_loss: 1.6308e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2440e-05 - val_output_b3_loss: 1.6049e-04 - learning_rate: 6.1035e-08 - lr: 6.1035e-08 - 472s/epoch - 353ms/step
+Epoch 22/50
+
+Epoch 22: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 472s - loss: 0.0012 - output_b1_loss: 9.9702e-04 - output_b2_loss: 2.3718e-05 - output_b3_loss: 1.6318e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2437e-05 - val_output_b3_loss: 1.6037e-04 - learning_rate: 1.5259e-08 - lr: 1.5259e-08 - 472s/epoch - 353ms/step
+Epoch 23/50
+
+Epoch 23: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 472s - loss: 0.0012 - output_b1_loss: 9.9403e-04 - output_b2_loss: 2.3706e-05 - output_b3_loss: 1.6293e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2448e-05 - val_output_b3_loss: 1.6040e-04 - learning_rate: 3.8147e-09 - lr: 3.8147e-09 - 472s/epoch - 353ms/step
+Epoch 24/50
+
+Epoch 24: val_output_b1_loss improved from 0.00101 to 0.00101, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0024.hdf5
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9657e-04 - output_b2_loss: 2.3718e-05 - output_b3_loss: 1.6296e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2466e-05 - val_output_b3_loss: 1.6037e-04 - learning_rate: 9.5367e-10 - lr: 9.5367e-10 - 473s/epoch - 353ms/step
+Epoch 25/50
+
+Epoch 25: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9668e-04 - output_b2_loss: 2.3726e-05 - output_b3_loss: 1.6320e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2449e-05 - val_output_b3_loss: 1.6038e-04 - learning_rate: 2.3842e-10 - lr: 2.3842e-10 - 473s/epoch - 353ms/step
+Epoch 26/50
+
+Epoch 26: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 474s - loss: 0.0012 - output_b1_loss: 9.9831e-04 - output_b2_loss: 2.3746e-05 - output_b3_loss: 1.6311e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2450e-05 - val_output_b3_loss: 1.6038e-04 - learning_rate: 5.9605e-11 - lr: 5.9605e-11 - 474s/epoch - 354ms/step
+Epoch 27/50
+
+Epoch 27: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9449e-04 - output_b2_loss: 2.3722e-05 - output_b3_loss: 1.6299e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2442e-05 - val_output_b3_loss: 1.6043e-04 - learning_rate: 1.4901e-11 - lr: 1.4901e-11 - 473s/epoch - 353ms/step
+Epoch 28/50
+
+Epoch 28: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 472s - loss: 0.0012 - output_b1_loss: 9.9738e-04 - output_b2_loss: 2.3726e-05 - output_b3_loss: 1.6312e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2452e-05 - val_output_b3_loss: 1.6045e-04 - learning_rate: 3.7253e-12 - lr: 3.7253e-12 - 472s/epoch - 353ms/step
+Epoch 29/50
+
+Epoch 29: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 474s - loss: 0.0012 - output_b1_loss: 9.9662e-04 - output_b2_loss: 2.3711e-05 - output_b3_loss: 1.6294e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2449e-05 - val_output_b3_loss: 1.6040e-04 - learning_rate: 9.3132e-13 - lr: 9.3132e-13 - 474s/epoch - 354ms/step
+Epoch 30/50
+
+Epoch 30: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 475s - loss: 0.0012 - output_b1_loss: 9.9784e-04 - output_b2_loss: 2.3717e-05 - output_b3_loss: 1.6287e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2467e-05 - val_output_b3_loss: 1.6043e-04 - learning_rate: 1.1642e-13 - lr: 1.1642e-13 - 475s/epoch - 354ms/step
+Epoch 31/50
+
+Epoch 31: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 474s - loss: 0.0012 - output_b1_loss: 9.9735e-04 - output_b2_loss: 2.3721e-05 - output_b3_loss: 1.6309e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2449e-05 - val_output_b3_loss: 1.6039e-04 - learning_rate: 1.4552e-14 - lr: 1.4552e-14 - 474s/epoch - 354ms/step
+Epoch 32/50
+
+Epoch 32: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9604e-04 - output_b2_loss: 2.3697e-05 - output_b3_loss: 1.6292e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2462e-05 - val_output_b3_loss: 1.6040e-04 - learning_rate: 1.8190e-15 - lr: 1.8190e-15 - 473s/epoch - 353ms/step
+Epoch 33/50
+
+Epoch 33: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 472s - loss: 0.0012 - output_b1_loss: 9.9718e-04 - output_b2_loss: 2.3709e-05 - output_b3_loss: 1.6284e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2456e-05 - val_output_b3_loss: 1.6047e-04 - learning_rate: 2.2737e-16 - lr: 2.2737e-16 - 472s/epoch - 353ms/step
+Epoch 34/50
+
+Epoch 34: val_output_b1_loss improved from 0.00101 to 0.00101, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0034.hdf5
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9560e-04 - output_b2_loss: 2.3708e-05 - output_b3_loss: 1.6299e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2443e-05 - val_output_b3_loss: 1.6042e-04 - learning_rate: 2.8422e-17 - lr: 2.8422e-17 - 473s/epoch - 353ms/step
+Epoch 35/50
+
+Epoch 35: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9590e-04 - output_b2_loss: 2.3733e-05 - output_b3_loss: 1.6312e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2455e-05 - val_output_b3_loss: 1.6044e-04 - learning_rate: 3.5527e-18 - lr: 3.5527e-18 - 473s/epoch - 353ms/step
+Epoch 36/50
+
+Epoch 36: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 472s - loss: 0.0012 - output_b1_loss: 9.9674e-04 - output_b2_loss: 2.3703e-05 - output_b3_loss: 1.6282e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2444e-05 - val_output_b3_loss: 1.6045e-04 - learning_rate: 4.4409e-19 - lr: 4.4409e-19 - 472s/epoch - 353ms/step
+Epoch 37/50
+
+Epoch 37: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9767e-04 - output_b2_loss: 2.3724e-05 - output_b3_loss: 1.6305e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2446e-05 - val_output_b3_loss: 1.6039e-04 - learning_rate: 5.5511e-20 - lr: 5.5511e-20 - 473s/epoch - 353ms/step
+Epoch 38/50
+
+Epoch 38: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9500e-04 - output_b2_loss: 2.3725e-05 - output_b3_loss: 1.6304e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2445e-05 - val_output_b3_loss: 1.6030e-04 - learning_rate: 6.9389e-21 - lr: 6.9389e-21 - 473s/epoch - 353ms/step
+Epoch 39/50
+
+Epoch 39: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 474s - loss: 0.0012 - output_b1_loss: 9.9795e-04 - output_b2_loss: 2.3739e-05 - output_b3_loss: 1.6320e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2451e-05 - val_output_b3_loss: 1.6038e-04 - learning_rate: 8.6736e-22 - lr: 8.6736e-22 - 474s/epoch - 354ms/step
+Epoch 40/50
+
+Epoch 40: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9647e-04 - output_b2_loss: 2.3715e-05 - output_b3_loss: 1.6288e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2452e-05 - val_output_b3_loss: 1.6040e-04 - learning_rate: 5.4210e-23 - lr: 5.4210e-23 - 473s/epoch - 353ms/step
+Epoch 41/50
+
+Epoch 41: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9911e-04 - output_b2_loss: 2.3717e-05 - output_b3_loss: 1.6293e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2433e-05 - val_output_b3_loss: 1.6046e-04 - learning_rate: 3.3881e-24 - lr: 3.3881e-24 - 473s/epoch - 353ms/step
+Epoch 42/50
+
+Epoch 42: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9562e-04 - output_b2_loss: 2.3713e-05 - output_b3_loss: 1.6309e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2436e-05 - val_output_b3_loss: 1.6044e-04 - learning_rate: 2.1176e-25 - lr: 2.1176e-25 - 473s/epoch - 353ms/step
+Epoch 43/50
+
+Epoch 43: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 474s - loss: 0.0012 - output_b1_loss: 9.9889e-04 - output_b2_loss: 2.3701e-05 - output_b3_loss: 1.6303e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2442e-05 - val_output_b3_loss: 1.6035e-04 - learning_rate: 1.3235e-26 - lr: 1.3235e-26 - 474s/epoch - 354ms/step
+Epoch 44/50
+
+Epoch 44: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 472s - loss: 0.0012 - output_b1_loss: 9.9774e-04 - output_b2_loss: 2.3728e-05 - output_b3_loss: 1.6295e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2458e-05 - val_output_b3_loss: 1.6037e-04 - learning_rate: 8.2718e-28 - lr: 8.2718e-28 - 472s/epoch - 353ms/step
+Epoch 45/50
+
+Epoch 45: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9708e-04 - output_b2_loss: 2.3720e-05 - output_b3_loss: 1.6298e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2444e-05 - val_output_b3_loss: 1.6042e-04 - learning_rate: 5.1699e-29 - lr: 5.1699e-29 - 473s/epoch - 353ms/step
+Epoch 46/50
+
+Epoch 46: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9684e-04 - output_b2_loss: 2.3717e-05 - output_b3_loss: 1.6304e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2448e-05 - val_output_b3_loss: 1.6042e-04 - learning_rate: 3.2312e-30 - lr: 3.2312e-30 - 473s/epoch - 354ms/step
+Epoch 47/50
+
+Epoch 47: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 473s - loss: 0.0012 - output_b1_loss: 9.9891e-04 - output_b2_loss: 2.3741e-05 - output_b3_loss: 1.6316e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2447e-05 - val_output_b3_loss: 1.6040e-04 - learning_rate: 2.0195e-31 - lr: 2.0195e-31 - 473s/epoch - 353ms/step
+Epoch 48/50
+
+Epoch 48: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 472s - loss: 0.0012 - output_b1_loss: 9.9855e-04 - output_b2_loss: 2.3694e-05 - output_b3_loss: 1.6273e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2443e-05 - val_output_b3_loss: 1.6040e-04 - learning_rate: 1.2622e-32 - lr: 1.2622e-32 - 472s/epoch - 353ms/step
+Epoch 49/50
+
+Epoch 49: val_output_b1_loss did not improve from 0.00101
+1339/1339 - 472s - loss: 0.0012 - output_b1_loss: 9.9687e-04 - output_b2_loss: 2.3719e-05 - output_b3_loss: 1.6299e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2458e-05 - val_output_b3_loss: 1.6045e-04 - learning_rate: 7.8886e-34 - lr: 7.8886e-34 - 472s/epoch - 352ms/step
+Epoch 50/50
+
+Epoch 50: val_output_b1_loss improved from 0.00101 to 0.00101, saving model to .logs/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732547545/model.ckpt.0050.hdf5
+1339/1339 - 472s - loss: 0.0012 - output_b1_loss: 9.9830e-04 - output_b2_loss: 2.3719e-05 - output_b3_loss: 1.6290e-04 - val_loss: 0.0012 - val_output_b1_loss: 0.0010 - val_output_b2_loss: 2.2432e-05 - val_output_b3_loss: 1.6042e-04 - learning_rate: 2.4652e-35 - lr: 2.4652e-35 - 472s/epoch - 352ms/step
