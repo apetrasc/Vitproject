@@ -12,7 +12,7 @@ import matplotlib.colors as colors
 import sys
 from matplotlib.legend_handler import HandlerLine2D, HandlerTuple
 from matplotlib.lines import Line2D
-file ='/mimer/NOBACKUP/groups/kthmech/sadanori/01_Ret180/02_vit/.epoch_log/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732719122_log.npz'
+file ='.epoch_log/NN_WallReconfluct1TF2_3NormIn-3Out_1-15_432x432_Ret180_lr0.001_decay20drop0.5_relu-1732884982_log.npz'
 data = np.load(file)
 tLoss = data['tLoss']
 vLoss = data['vLoss']

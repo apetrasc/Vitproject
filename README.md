@@ -1,4 +1,4 @@
-# baseline
+# viTproject
 
 this repository is supported by Arivazhagan G. Balasubramanian and this is only reproduction of his work.
 For further information, check https://arxiv.org/abs/2404.14121 
@@ -19,10 +19,16 @@ gbck
 shows the job progress
 lsr
 
-show the training situation -> look at the train.txt
+show the training situation -> look at the train/train.txt
 ## note
 pytorch is not available. Learn how to use Tensorflow.
-how can we evaluate the model? -> CNN-predict-i.py?
+how can we evaluate the model? -> CNN-predict.py, which generates pred_<number>.npz files.
+and result.txt can be generated via NN_velocity_result.py, which generates result.txt.
+and all the scripts are executed on .sh files. Check 
+```
+train.sh, eval.sh, postprocess.sh
+```
+
 submit.sh is not the suitable word for it: I think training.sh and eval.sh should be prepared so that anyone can work and measure the efficiency of the model. 
 ```
 projinfo 
