@@ -13,7 +13,7 @@ python -m venv vit
 "vit" the name of the virtual environment. If you want, you can replace the name and change the batch script.  
 Second, activate the virtual environment and install all the necessary libraries at once. do
 ```
-source vit bin activate
+source vit/bin/activate
 pip install -r requirements.txt
 ```
 initial setting is over! after that you can train&evaluate the models.
