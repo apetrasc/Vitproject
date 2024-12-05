@@ -1,0 +1,5 @@
+matplotlib==3.5.1
+numpy==1.22.4
+scipy==1.7.3
+tensorflow==2.15.0.post1
+vit_keras==0.1.2
