@@ -23,4 +23,4 @@ source sadanori/bin/activate
 
 # Run the executable named myexe 
 # and write the output into my_output_file
-python3 NN_velocity_result.py > tmp/result_vit_smaller.txt
+python3 NN_velocity_result.py > tmp/result.txt

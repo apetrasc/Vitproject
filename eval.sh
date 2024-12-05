@@ -8,5 +8,5 @@
 #SBATCH -e sb_error.e
 #SBATCH -o sb_output.o
 module load TensorFlow/2.15.1-foss-2023a-CUDA-12.1.1
-source sadanori/bin/activate
+source vit/bin/activate
 python3 ViT-predict.py > eval/eval_vit.txt

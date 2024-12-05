@@ -18,7 +18,7 @@
 
 module load TensorFlow/2.15.1-foss-2023a-CUDA-12.1.1
 #module load GPyTorch/1.9.1-foss-2021a-CUDA-11.3.1
-source sadanori/bin/activate
+source vit/bin/activate
 #SBATCH -e tmp/sb_error.e
 #SBATCH -o tmp/sb_output.o
 
