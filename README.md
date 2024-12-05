@@ -53,14 +53,21 @@ you can search the module name by
 scontrol is 
 see here if you want to make a new virtual environment https://www.c3se.chalmers.se/documentation/applications/python/#virtual-environments
 
-#warning!
+# warning!
+## the coordinates are a little bit strange. 
+after you processed 
+```
+sbatch postprocess.sh
+```
+you will get tmp/result.txt and read the outcome. However, you should be careful that the coordinates are permutated. 
+the file says "v ,w, u" ,which is wrong. you HAVE to read them as "u, v, w" (x,y,z)
 Please ignore 
-# ml models
+## ml models
 *.h5
 *.pt
 *.ckpt
 
-# other large files
+## other large files
 *.zip
 *.tar.gz
 
