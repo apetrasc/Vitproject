@@ -4,13 +4,13 @@
 For further information, check https://arxiv.org/abs/2404.14121
 In order to reproduce this work easily, you ought to execute the following commands.
 ## setting 
-First, create virtual environment to execute the work.PLEASE NOTE that before you execute python -m venv <env name>, load the module first.
+First, create virtual environment to execute the work.PLEASE NOTE that load the module before you execute $python -m venv <env name>$, 
 
 ```
 module load TensorFlow/2.15.1-foss-2023a-CUDA-12.1.1
 python -m venv vit
 ```
-"vit" the name of the virtual environment. If you want, you can replace the name and change the batch script.  
+"vit" the name of the virtual environment. If you want, you can replace the name and change the shell script.  
 Second, activate the virtual environment and install all the necessary libraries at once. do
 ```
 source vit/bin/activate
